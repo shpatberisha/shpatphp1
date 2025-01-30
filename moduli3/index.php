@@ -1,5 +1,7 @@
 <?php
 
+$student=["Shpati", "Anik", "Andi", "Darisi", "Bledi", "Dorat"]
+
 $notat = 80;
  
 if($notat >= 90){
@@ -18,7 +20,7 @@ if($notat<= 60 && $notat >69){
     echo "YOU GOT 2"
 }
 
-if($notat<= 50 ){
+if($notat<= 50 )
     echo "YOU GOT "
 
 
@@ -52,6 +54,24 @@ if($notat<= 50 ){
                                                 echo "vikend";
                                                 break;
 
+ }
+
+
+
+
+ for(x = 50; $x=< 100 $x = $x +2){
+    echo($x)
+ }
+
+
+
+ foreach($student as st $student){
+    echo($student."<br>");
+ }
+
+ while(strlen($string)<10){
+    echo($string);
+    $string = $string."g";
  }
 
 ?>
