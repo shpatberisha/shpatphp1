@@ -1,8 +1,7 @@
 <?php
 
-$array = ["a", "b", "c"]
+$array = ["a", "b", "c"];
 print_r($array);
-
 
 phpversion();
 

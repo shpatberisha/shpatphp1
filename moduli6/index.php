@@ -34,12 +34,12 @@ $text = "computer programing";
 fwrite($my_file, $text);
 
 
-$my_file = fopen("data.txt", "w+")
+$my_file = fopen("data.txt", "w+");
 
 fwrite($my_file, "Data test 1");
 
 
-$my_file = fopen("data.txt","a+")
+$my_file = fopen("data.txt","a+");
 
 fwrite($my_file, "Data test 2");
 

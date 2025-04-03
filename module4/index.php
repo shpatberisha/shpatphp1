@@ -44,7 +44,7 @@ echo"<br>";
 
 print_r($students);
 
-array_shift($students"edeni");
+array_shift($students, "edeni");
 echo"<br>";
 
 $students_slice=array_slice($students, 1,1);

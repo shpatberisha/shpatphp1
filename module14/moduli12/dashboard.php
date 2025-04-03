@@ -1,16 +1,3 @@
-<?php
-include_once("config.php");
-if(empty($_SESSION['username'])){
-    header('Location: login.php');
-}
-$sql ="SELECT * FROM users";
-$selectUsers = $conn->prepare($sql);
-$selectUsers->execute();
-
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,8 +9,6 @@ integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIe
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-
-
         table,td,th {
             border: 1px solid black;
             border-collapse: collapse;
@@ -35,24 +20,6 @@ integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIe
 
 </head>
 <body>
-
-  <nav class="navbar navbar-dark fixed fixed-top flex-md-nowrap p-0 shadow">
-    <a href="#" class="navbar-brand col-sm-3 col-md-2n mr-0">Welcome, ,<i><?php echo $_session['username'];?></i></a>
-    <ul>
-        <li clss="nav=item text-nowrap">
-            <a href="logout.php" class="nav-link">Sign out</a>
-        </li>
-    </ul>
-  </nav>
-  <div class="container-fluid">
-    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-        <ul class="sidebar-sticky">
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-        </ul>
-    </nav>
-  </div>
-
     <?php
     include_once('config.php');
     $sql = "SELECT * FROM users";
