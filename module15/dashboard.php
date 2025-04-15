@@ -1,3 +1,14 @@
+<?php
+
+include_once('config.php');
+$sql="SELECT * FROM products";
+$selectProducts=$conn->prepare ($sql);
+$selectProducts->execute();
+
+$products_data=$selectProducts->fetchAll();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,42 +30,37 @@ integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIe
         </style>
 
 </head>
-<body>
-    <?php
-    include_once('config.php');
-    $sql = "SELECT * FROM users";
-    $getUsers = $connection->prepare(query: $sql);
-    $getUsers->execute();
-    $users = $getUsers->fetchAll();
-    
-    ?>
-    <table>
+<table>
         <thead>
             <th>Id</th>
-            <th>Name</th>
-            <th>Surname</th>
-            <th>Email</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Quantity</th>
+            <th>Price</th>
     </thead>
-    <tbody>
+   
         <?php
-        foreach($users as $user) {
-            ?>
-            <tr>
-                <td><?= $user['id']?></td>
-                <td><?= $user['name']?></td>
-                <td><?= $user['surname']?></td>
-                <td><?= $user['email']?></td>
-                <td> <? "<a href='delete.php?id=$user[id]'> Delete</a> | <a href='edit.php?id=$user[id]'> Update <a/>"?></td>
+        foreach($products_data as $product){
+        ?>
+        <tr>
+           <td> <?= $product['id'] ?></td>
+            <td> <?=$product['title'] ?></td>
+            <td> <?= $product['description'] ?></td>
+            <td> <?= $product['quantity'] ?></td>
+            <td> <?= $product['price'] ?></td>
+            <td> <?= "<a href='updatePtoduct.php?id=$product[id]>Update</a>"?>Update</td>
+            <td> <?= "<a href=deletePtoduct.php?id=$product[id]>Delete</a>"?>Delete</td>
         </tr>
         <?php
         }
         ?>
-    <t/body>
+    
     </table>
     <a href="index.php">Add User</a> 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
  integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" 
 integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
 </body>
 </html>
