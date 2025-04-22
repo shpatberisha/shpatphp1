@@ -23,7 +23,9 @@ CREATE TABLE `movies`(
     `movie_image` varchar(255) NOT NULL
     )
 INSERT INTO `movies` (`movie_name`,`movie_desc`,`movie_quality`,`movie_rating`,`movie_image`) VALUES 
-('Zgjoi','The movie is based on the true story of a woman, Fahrije, who goes against misogynistic societal expectations to become an entrepreneur after her husband went missing during the 1998–1999 Kosovo War.','3D',10,'zgjoi.png')
+('Zgjoi','The movie is based on the true story of a woman, Fahrije,
+ who goes against misogynistic societal expectations to become an entrepreneur after her husband went missing during the 1998–1999 Kosovo War.
+ ','3D',10,'zgjoi.png')
 
 
 
@@ -36,3 +38,7 @@ CREATE TABLE `bookings`(
     `is_approved` varchar(255) NOT NULL,
     `time` varchar(255)
     )
+
+
+
+    INSERT INTO `bookings` (`user_id`,`movie_id`, `nr_tickets`,`date`,`is_approved`,`time`) VALUES (1,1,2,'2025-12-16','true','19:00');
