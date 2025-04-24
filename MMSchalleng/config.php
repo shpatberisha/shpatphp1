@@ -9,7 +9,7 @@ $password ="";
 
 
 try{
-    $conn = new PDO("mysql:host=$localhost;dbname=$mms",  $user, $password);
+    $conn = new PDO("mysql:host=$localhost;dbname=$db",  $user, $password);
     echo "Connection Succsesfully";
 }catch(Exception $e){
     echo "Error" . $e->getMessage();
