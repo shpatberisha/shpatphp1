@@ -18,6 +18,7 @@ $users_data=$selectUsers->fetchAll();
  <html>
  <head>
   <title>Dashboard</title>
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -32,6 +33,8 @@ $users_data=$selectUsers->fetchAll();
   <meta name="theme-color" content="#7952b3">
  </head>
  <body>
+
+ <a href="movies.php" class="btn btn-primary">Add Movie</a>
 
 
  <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
