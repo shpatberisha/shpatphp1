@@ -1,26 +1,15 @@
 <?php
+//Initialization of some variables for maintaining database data
+$user="root";
+$pass="";
+$server="localhost";
+$dbname="motovibe";
 
-$localhost = "localhost";
-$db = "motovibe";
-$user = "root";
-$password ="";
-
-
-
-
-try{
-    $conn = new PDO("mysql:host=$localhost;dbname=$db",  $user, $password);
-    echo "Connection Succsesfully";
-}catch(Exception $e){
-    echo "Error" . $e->getMessage();
+try {
+	//Creating a PDO to connect with database
+	$conn =new PDO("mysql:host=$server;dbname=$dbname",$user,$pass);
+} catch (PDOException $e) {
+	echo "error: " . $e->getMessage();
 }
-
-
-
-
-
-
-
-
 
 ?>
