@@ -80,11 +80,11 @@
 
   <div class="sidebar">
     <h2>Moto Vibe</h2>
-    <a href="#">Dashboard</a>
+    <a href="dashboard.php">Dashboard</a>
     <a href="#">Users</a>
-    <a href="#">Motorsicle</a>
-    <a href="#">Bookings</a>
-    <a href="#">Logout</a>
+    <a href="moto.php">Motorsicle</a>
+    <a href="booking.php">Bookings</a>
+    <a href="logout.php">Logout</a>
   </div>
 
   <div class="main-content">
