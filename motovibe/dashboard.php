@@ -1,3 +1,21 @@
+<?php 
+
+	  session_start();
+
+    include_once('config.php');
+
+    if (empty($_SESSION['username'])) {
+          header("Location: login.php");
+    }
+   
+    $sql = "SELECT * FROM users";
+    $selectUsers = $conn->prepare($sql);
+    $selectUsers->execute();
+
+    $users_data = $selectUsers->fetchAll();
+	
+
+ ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -74,6 +92,47 @@
       min-width: 200px;
     }
 
+    /* Add spacing between widgets and table */
+    .table-section {
+      margin-top: 30px;
+    }
+
+    /* Additional styling for the table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 10px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f4f4f4;
+    }
+
+    .btn {
+      padding: 6px 12px;
+      border-radius: 5px;
+      color: white;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background-color: #3498db;
+    }
+
+    .btn-danger {
+      background-color: #e74c3c;
+    }
+
+    .btn:hover {
+      opacity: 0.8;
+    }
   </style>
 </head>
 <body>
@@ -81,10 +140,11 @@
   <div class="sidebar">
     <h2>Moto Vibe</h2>
     <a href="dashboard.php">Dashboard</a>
-    <a href="#">Users</a>
     <a href="moto.php">Motorsicle</a>
     <a href="booking.php">Bookings</a>
+    <a href="list_moto.php">Moto</a>
     <a href="logout.php">Logout</a>
+
   </div>
 
   <div class="main-content">
@@ -102,6 +162,37 @@
       <div class="widget">
         <h3>Revenue</h3>
         <p>$12,340</p>
+      </div>
+    </div>
+    
+    <!-- Table Section -->
+    <div class="table-section">
+      <h2>Users</h2>
+      <div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Emri</th>
+              <th scope="col">Username</th>
+              <th scope="col">Email</th>
+              <th scope="col">Update</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($users_data as $user ): ?>
+              <tr>
+                <td><?php echo htmlspecialchars($user['id']); ?></td>
+                <td><?php echo htmlspecialchars($user['emri']); ?></td>
+                <td><?php echo htmlspecialchars($user['username']); ?></td>
+                <td><?php echo htmlspecialchars($user['email']); ?></td>
+                <td><a href="editUsers.php?id=<?= $user['id'];?>" class="btn btn-primary">Update</a></td>
+                <td><a href="deleteUsers.php?id=<?= $user['id'];?>" class="btn btn-danger">Delete</a></td>
+              </tr>
+            <?php endforeach; ?>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

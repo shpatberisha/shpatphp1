@@ -1,6 +1,18 @@
 <?php 
 
-  session_start();
+	 session_start();
+
+   include_once('config.php');
+
+   $id = $_GET['id'];
+
+   $sql = "SELECT * FROM moto WHERE id=:id";
+   $selectUser = $conn->prepare($sql);
+   $selectUser->bindParam(':id', $id);
+   $selectUser->execute();
+
+   $user_data = $selectUser->fetch();
+	
 
  ?>
 
@@ -20,12 +32,6 @@
 	<link rel="mask-icon" href="/docs/5.1/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
 	<link rel="icon" href="/docs/5.1/assets/img/favicons/favicon.ico">
 	<meta name="theme-color" content="#7952b3">
-
-  <style>
-    #floatingInput{
-      margin: 20px 0px;
-    }
-  </style>
  </head>
  <body>
  
@@ -47,66 +53,66 @@
   <div class="row">
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
       <div class="position-sticky pt-3">
-      <ul class="nav flex-column">
-           
-        
-            </li>
+        <ul class="nav flex-column">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="dashboard.php">
               <span data-feather="home"></span>
               Dashboard
             </a>
-          </li>
-          
-       
-          <li class="nav-item">
-            <a class="nav-link" href="booking.php">
-              <span ></span>
-              Bookings
-            </a>
-          </li>
+         
         </ul>
 
-    
+        
       </div>
     </nav>
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Dashboard</h1>
-        
+        <div class="btn-toolbar mb-2 mb-md-0">
+          <div class="btn-group me-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+          </div>
+          <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+            <span data-feather="calendar"></span>
+            This week
+          </button>
+        </div>
       </div>
 
     
 
-      <h2>Moto</h2>
-
-       <form action="addmoto.php" method="post">
-    
+      <h2>Edit movie's details</h2>
+      <div class="table-responsive">
         
+        <form action="update.php" method="post">
         <div class="form-floating">
-          <input type="text" class="form-control" id="floatingInput" placeholder="Moto Name" name="moto_name" >
-          <label for="floatingInput">Moto name</label>
+          <input readonly="readonly" type="text" class="form-control" id="floatingInput" placeholder="id" name="id" value="<?php echo  $user_data['id'] ?>">
+          <label for="floatingInput">ID</label>
+        </div>
+    
+        <div class="form-floating">
+          <input type="text" class="form-control" id="floatingInput" placeholder="Moto Name" name="moto_name" value="<?php echo  $user_data['moto_name'] ?>">
+          <label for="floatingInput">Moto Name</label>
         </div>
         <div class="form-floating">
-          <input type="text" class="form-control" id="floatingInput" placeholder="Moto Description" name="moto_desc" >
+          <input type="text" class="form-control" id="floatingInput" placeholder="Moto Description" name="moto_desc" value="<?php echo  $user_data['moto_desc'] ?>">
           <label for="floatingInput">Moto Description</label>
         </div>
         <div class="form-floating">
-          <input type="text" class="form-control" id="floatingInput" placeholder="Quality" name="moto_quality" >
+          <input type="text" class="form-control" id="floatingInput" placeholder="Moto Quality" name="moto_quality" value="<?php echo  $user_data['moto_quality'] ?>">
           <label for="floatingInput">Moto Quality</label>
         </div>
         <div class="form-floating">
-          <input type="number" class="form-control" id="floatingInput" placeholder="Rating" name="moto_rating" >
-          <label for="floatingInput">Rating</label>
+          <input type="number" class="form-control" id="floatingInput" placeholder="Moto Rating" name="moto_rating" value="<?php echo  $user_data['moto_rating'] ?>">
+          <label for="floatingInput">Moto Rating</label>
         </div>
-        <div class="form-floating">
-          <input type="file" class="form-control" id="floatingInput" placeholder="Image" name="moto_image" >
-          <label for="floatingInput">Image</label>
-        </div>
-         <button  class="w-100 btn btn-lg btn-primary" type="submit" name="submit"> Add Moto </button> 
+        <br>
+        <button class="w-100 btn btn-lg btn-primary" type="submit" name="submit1">Update</button>
       </form>
-      
+
+
       </div>
     </main>
   </div>

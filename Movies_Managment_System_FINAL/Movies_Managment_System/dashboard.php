@@ -112,7 +112,7 @@
         
       </div>
 
-    <?php if ($_SESSION['is_admin'] == 'true') { ?>
+ 
 
       <h2>Users</h2>
       <div class="table-responsive">
@@ -147,9 +147,7 @@
           </tbody>
         </table>
       </div>
-     <?php  } else {
-      
-    } ?>
+    
     </main>
   </div>
 </div>

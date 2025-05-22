@@ -7,14 +7,14 @@
 	if(isset($_POST['submit']))
 	{
 
-		$movie_name = $_POST['moto_name'];
-		$movie_desc = $_POST['moto_desc'];
-		$movie_quality = $_POST['moto_quality'];
-		$movie_rating = $_POST['moto_rating'];
-		$movie_image = $_POST['moto_image'];
+		$moto_name = $_POST['moto_name'];
+		$moto_desc = $_POST['moto_desc'];
+		$moto_quality = $_POST['moto_quality'];
+		$moto_rating = $_POST['moto_rating'];
+		$moto_image = $_POST['moto_image'];
 	
 
-		$sql = "INSERT INTO movies(moto_name, moto_desc, moto_quality, moto_rating, moto_image) VALUES (:moto_name, :moto_desc, :moto_quality, :moto_rating, :moto_image)";
+		$sql = "INSERT INTO moto(moto_name, moto_desc, moto_quality, moto_rating, moto_image) VALUES (:moto_name, :moto_desc, :moto_quality, :moto_rating, :moto_image)";
 
 		$insertMovie = $conn->prepare($sql);
 			
@@ -27,7 +27,7 @@
 
 		$insertMovie->execute();
 
-		header("Location: moto.php");
+		header("Location: dashboard.php");
 
 
 	}

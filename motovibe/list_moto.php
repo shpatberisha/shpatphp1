@@ -12,7 +12,7 @@
           header("Location: login.php");
     }
    
-    $sql = "SELECT * FROM movies";
+    $sql = "SELECT * FROM moto";
     $selectUsers = $conn->prepare($sql);
     $selectUsers->execute();
 
@@ -98,7 +98,7 @@
         
       </div>
 
-    <?php if ($_SESSION['is_admin'] == 'true') { ?>
+
 
       <h2>Moto</h2>
       <a href="moto.php" class="btn btn-primary">Add Moto</a>
@@ -134,7 +134,7 @@
           </tbody>
         </table>
       </div>
-     <?php } ?>
+     
     </main>
   </div>
 </div>
