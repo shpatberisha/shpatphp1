@@ -6,7 +6,7 @@
   */
 	session_start();
   
-   include_once('config.php');
+  include_once('config.php');
    $id = $_GET['id'];
    $_SESSION['movie_id'] = $id;
    $sql = "SELECT * FROM movies WHERE id=:id";

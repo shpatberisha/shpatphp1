@@ -84,12 +84,10 @@
     <div class="card">
         <div class="card-body">
             <div class="row">
-                <div class="col-lg-5 col-md-5 col-sm-6">
-                    <div class="white-box text-center" style="width: 100%;height: 100%;"><img src="moto_images/<?php echo $movie_data['moto_image'];  ?>" class="img-responsive" style="width: 70%; height: 90%;"></div>
-                </div>
+                
                 <div class="col-lg-7 col-md-7 col-sm-6">
                     <h4 class="box-title mt-5"><?php echo $movie_data['moto_name']; ?></h4>
-                    <p><?php echo $movie_data['movie_desc']; ?></p>
+                    <p><?php echo $movie_data['moto_desc']; ?></p>
                     <form action="book.php" method="post">
                     <div class="form-floating">
                       <input type="number" class="form-control" id="floatingInput" placeholder="Number of tickets" name="nr_tickets" >

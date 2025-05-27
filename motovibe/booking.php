@@ -140,7 +140,7 @@
            <?php }}else{ ?>
             <?php foreach ($bookings_data as $booking_data) { ?>
             <tr>
-            <td><?php echo $booking_data['movie_name']; ?></td>
+            <td><?php echo $booking_data['moto_name']; ?></td>
             <td><?php echo $booking_data['email']; ?></td>
             <td><?php echo $booking_data['nr_tickets']; ?></td>
             <td><?php echo $booking_data['date']; ?></td>
